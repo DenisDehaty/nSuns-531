@@ -3,4 +3,3 @@ nSuns companion app
 
 # Fixes to do
 - back button on first settings
-- night mode highligthing
