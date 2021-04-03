@@ -18,4 +18,5 @@ class SetUpActivity : AppCompatActivity() {
         trainingPlansRecyclerView.adapter = TrainingPlansAdapter(this)
 
     }
+
 }
