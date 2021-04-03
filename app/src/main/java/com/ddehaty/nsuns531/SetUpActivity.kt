@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class SetUpActivity : AppCompatActivity() {
-    lateinit var trainingPlansRecyclerView: RecyclerView
+    private lateinit var trainingPlansRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +15,7 @@ class SetUpActivity : AppCompatActivity() {
 
         trainingPlansRecyclerView = findViewById(R.id.trainingPlansRecyclerView)
         trainingPlansRecyclerView.layoutManager = LinearLayoutManager(this)
+        trainingPlansRecyclerView.adapter = TrainingPlansAdapter(this)
 
     }
 }

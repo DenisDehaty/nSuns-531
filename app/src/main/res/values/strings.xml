@@ -2,11 +2,11 @@
     <string name="app_name">nSuns 5/3/1</string>
     <string name="set_up_activity_title">First Settings</string>
     <string name="select_plan">Choose your plan</string>
-    <array name="plans">
-        <item>4 day</item>
-        <item>5 day</item>
-        <item>6 day Deadlift focused</item>
-        <item>6 day Squat focused</item>
-    </array>
+
+    <string name="four_day_plan">4 day</string>
+    <string name="five_day_plan">5 day</string>
+    <string name="six_day_deadlift_plan">6 day Deadlift focused</string>
+    <string name="six_day_squat_plan">6 day Squat focused</string>
+
     <string name="units">Select your preferred units</string>
 </resources>
