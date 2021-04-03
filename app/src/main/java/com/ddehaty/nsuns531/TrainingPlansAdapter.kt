@@ -1,8 +1,8 @@
 package com.ddehaty.nsuns531
 
 import android.app.Activity
+import android.content.res.Configuration
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,16 +25,20 @@ class TrainingPlansAdapter(context: Activity) : RecyclerView.Adapter<TrainingPla
     private var index = -1
 
     override fun onBindViewHolder(holder: TrainingPlansViewHolder, position: Int) {
-        val training = trainingPlans.get(position)
+        val training = trainingPlans[position]
         holder.setTraining(training)
-        holder.itemView.setOnClickListener() {
+        holder.itemView.setOnClickListener {
             index = position
             notifyDataSetChanged()
         }
-        if(index == position) {
+        if (index == position) {
             holder.itemView.setBackgroundColor(Color.parseColor("#E0E0F3"))
         } else {
-            holder.itemView.setBackgroundColor(Color.WHITE)
+            val currentNightMode = holder.itemView.context.getResources().getConfiguration().uiMode and Configuration.UI_MODE_NIGHT_MASK
+            when (currentNightMode) {
+                Configuration.UI_MODE_NIGHT_NO -> holder.itemView.setBackgroundColor(Color.WHITE)
+                Configuration.UI_MODE_NIGHT_YES -> holder.itemView.setBackgroundColor(Color.BLACK)
+            }
         }
 
 
