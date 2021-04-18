@@ -17,25 +17,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/trainingPlansRecyclerView"
-        android:layout_width="277dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:overScrollMode="never"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choosePlanTextView" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="37dp"
         android:text="@string/units"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trainingPlansRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/trainingPlansRadioGroup" />
+
+    <RadioGroup
+        android:id="@+id/unitsRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
+
+        <RadioButton
+            android:id="@+id/kgRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="kg" />
+
+        <RadioButton
+            android:id="@+id/lbsRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lbs" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/setUpNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/nextButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/trainingPlansRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choosePlanTextView">
+
+        <RadioButton
+            android:id="@+id/fourDayRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:checked="true"
+            android:text="@string/four_day_plan" />
+
+        <RadioButton
+            android:id="@+id/fiveDayRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/five_day_plan" />
+
+        <RadioButton
+            android:id="@+id/sixDayDLRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/six_day_deadlift_plan" />
+
+        <RadioButton
+            android:id="@+id/sixDaySRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/six_day_squat_plan" />
+    </RadioGroup>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

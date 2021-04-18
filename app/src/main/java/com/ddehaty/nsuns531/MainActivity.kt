@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
-   val test = TrainingPlans()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)
         }
-
 
 
 
