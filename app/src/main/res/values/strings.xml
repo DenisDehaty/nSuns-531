@@ -9,5 +9,15 @@
     <string name="six_day_squat_plan">6 day Squat focused</string>
 
     <string name="units">Select your preferred units</string>
-    <string name="nextButton">Next</string>
+    <string name="next_button">Next</string>
+
+    <string name="set_personal_max_title">Set your personal max</string>
+    <string name="set_personal_max_msg">Set your personal max of these exercises</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="back_button">Back</string>
+    
+    <string name="squat">Squat</string>
+    <string name="bench">Bench Press</string>
+    <string name="deadlift">Deadlift</string>
+    <string name="ohp">Overhead Press</string>
 </resources>
