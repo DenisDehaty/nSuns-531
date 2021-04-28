@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.room.*
 
 @Database(
-    entities = [Benchpress::class],
+    entities = [Benchpress::class, Deadlift::class, Ohp::class, Squat::class],
     version =1
 )
     abstract class NsunsDatabase : RoomDatabase() {
         abstract fun BenchpressDao(): BenchpressDao
+        abstract fun DeadliftDao(): DeadliftDao
+        abstract fun OhpDao(): OhpDao
+        abstract fun SquatDao(): SquatDao
 
     companion object {
         @Volatile private var instance: NsunsDatabase? = null

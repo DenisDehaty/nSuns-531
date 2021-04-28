@@ -7,6 +7,7 @@ import androidx.room.Query
 
 @Dao
 interface BenchpressDao {
+
     @Query("SELECT * FROM Benchpress WHERE id > 0")
     fun getAll(): List<Benchpress>
 
