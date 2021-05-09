@@ -1,8 +1,9 @@
-package com.ddehaty.nsuns531
+package com.ddehaty.nsuns531.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.ddehaty.nsuns531.Squat
 
 @Dao
 interface SquatDao {
@@ -11,5 +12,5 @@ interface SquatDao {
     fun getAll(): List<Squat>
 
     @Insert
-    fun save(squat: Squat)
+    suspend fun save(squat: Squat)
 }

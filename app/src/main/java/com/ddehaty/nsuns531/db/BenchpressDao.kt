@@ -1,9 +1,9 @@
-package com.ddehaty.nsuns531
+package com.ddehaty.nsuns531.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.ddehaty.nsuns531.Benchpress
 
 @Dao
 interface BenchpressDao {
@@ -12,6 +12,6 @@ interface BenchpressDao {
     fun getAll(): List<Benchpress>
 
     @Insert
-    fun save(benchpress: Benchpress)
+    suspend fun save(benchpress: Benchpress)
 
 }

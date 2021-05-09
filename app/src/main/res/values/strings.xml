@@ -20,4 +20,5 @@
     <string name="bench">Bench Press</string>
     <string name="deadlift">Deadlift</string>
     <string name="ohp">Overhead Press</string>
+    <string name="saving_weights">Selected weights have been saved</string>
 </resources>

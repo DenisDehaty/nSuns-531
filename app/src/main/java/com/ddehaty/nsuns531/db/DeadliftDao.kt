@@ -1,8 +1,9 @@
-package com.ddehaty.nsuns531
+package com.ddehaty.nsuns531.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.ddehaty.nsuns531.Deadlift
 
 @Dao
 interface DeadliftDao {
@@ -11,5 +12,5 @@ interface DeadliftDao {
     fun getAll(): List<Deadlift>
 
     @Insert
-    fun save(deadlift: Deadlift)
+    suspend fun save(deadlift: Deadlift)
 }

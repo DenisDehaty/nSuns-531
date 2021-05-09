@@ -1,8 +1,9 @@
-package com.ddehaty.nsuns531
+package com.ddehaty.nsuns531.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.ddehaty.nsuns531.Ohp
 
 @Dao
 interface OhpDao {
@@ -11,5 +12,5 @@ interface OhpDao {
     fun getAll(): List<Ohp>
 
     @Insert
-    fun save(ohp: Ohp)
+    suspend fun save(ohp: Ohp)
 }
