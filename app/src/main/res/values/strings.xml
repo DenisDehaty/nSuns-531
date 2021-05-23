@@ -15,10 +15,12 @@
     <string name="set_personal_max_msg">Set your personal max of these exercises</string>
     <string name="confirm_button">Confirm</string>
     <string name="back_button">Back</string>
-    
+
     <string name="squat">Squat</string>
     <string name="bench">Bench Press</string>
     <string name="deadlift">Deadlift</string>
     <string name="ohp">Overhead Press</string>
     <string name="saving_weights">Selected weights have been saved</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

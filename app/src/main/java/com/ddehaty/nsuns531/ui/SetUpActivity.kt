@@ -1,6 +1,7 @@
 package com.ddehaty.nsuns531.ui
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -86,6 +87,9 @@ class SetUpActivity : AppCompatActivity() {
                 Ohp(weight = ohpWeight.text.toString()),
                 Squat(weight = squatWeigt.text.toString())
             )
+            val mainActivity = Intent(this, MainActivity::class.java)
+            startActivity(mainActivity)
+            finish()
             dialog.dismiss()
         }
 

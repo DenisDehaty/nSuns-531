@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(setUpActivity)
         }
 
+    }
 
-
-
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        return
     }
 }
