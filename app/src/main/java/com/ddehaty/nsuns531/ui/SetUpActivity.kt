@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
@@ -29,14 +30,15 @@ class SetUpActivity : AppCompatActivity() {
             val unitsCheckedRadioButtonId =
                 findViewById<RadioGroup>(R.id.unitsRadioButton).checkedRadioButtonId
             val units = findViewById<RadioButton>(unitsCheckedRadioButtonId)
+            showAlertDialog()
             val preferences = getSharedPreferences("Preferences", MODE_PRIVATE)
             val editor = preferences.edit()
             editor.apply {
                 putString("plan", plans.text.toString())
                 putString("units", units.text.toString())
+                putBoolean("firststart",false)
                 apply()
             }
-            showAlertDialog()
         }
 
     }

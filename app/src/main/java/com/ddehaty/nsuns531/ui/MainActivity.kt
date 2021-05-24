@@ -13,17 +13,11 @@ class MainActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("Preferences", MODE_PRIVATE)
 
         if(preferences.getBoolean("firststart",true)){
-            val editor = preferences.edit()
-            editor.putBoolean("firststart",false)
-            editor.apply()
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)
         }
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        return
-    }
+
 }
