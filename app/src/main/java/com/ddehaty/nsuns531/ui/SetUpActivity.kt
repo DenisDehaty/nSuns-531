@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
@@ -45,11 +44,12 @@ class SetUpActivity : AppCompatActivity() {
 
     private fun saveWeights(benchpress: Benchpress, deadlift: Deadlift, ohp: Ohp, squat: Squat) {
         GlobalScope.launch {
-            val weightRepository = WeightRepository(NsunsDatabase(this@SetUpActivity))
-            weightRepository.saveBenchpressWeight(benchpress)
-            weightRepository.saveDeadliftWeight(deadlift)
-            weightRepository.saveOhpWeights(ohp)
-            weightRepository.saveSquatWeight(squat)
+            WeightRepository(NsunsDatabase(this@SetUpActivity)).apply {
+                saveBenchpressWeight(benchpress)
+                saveDeadliftWeight(deadlift)
+                saveOhpWeights(ohp)
+                saveSquatWeight(squat)
+            }
         }
 
 
@@ -70,24 +70,24 @@ class SetUpActivity : AppCompatActivity() {
         val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
         positiveButton.isEnabled = false
         val benchpressWeight = layout.findViewById<EditText>(R.id.benchpressEditText)
-        val deadliftWeigt = layout.findViewById<EditText>(R.id.deadliftEditText)
+        val deadliftWeight = layout.findViewById<EditText>(R.id.deadliftEditText)
         val ohpWeight = layout.findViewById<EditText>(R.id.ohpEditText)
-        val squatWeigt = layout.findViewById<EditText>(R.id.squatEditText)
+        val squatWeight = layout.findViewById<EditText>(R.id.squatEditText)
         positiveButton.isEnabled = false
-        val weights = listOf(benchpressWeight, deadliftWeigt, ohpWeight, squatWeigt)
+        val weights = listOf(benchpressWeight, deadliftWeight, ohpWeight, squatWeight)
         weights.forEach { weight ->
             weight.doAfterTextChanged {
                 positiveButton.isEnabled =
-                    !(benchpressWeight.text.toString() == "" || deadliftWeigt.text.toString() == "" ||
-                            ohpWeight.text.toString() == "" || squatWeigt.text.toString() == "")
+                    !(benchpressWeight.text.toString() == "" || deadliftWeight.text.toString() == "" ||
+                            ohpWeight.text.toString() == "" || squatWeight.text.toString() == "")
             }
         }
         positiveButton.setOnClickListener {
             saveWeights(
                 Benchpress(weight = benchpressWeight.text.toString()),
-                Deadlift(weight = deadliftWeigt.text.toString()),
+                Deadlift(weight = deadliftWeight.text.toString()),
                 Ohp(weight = ohpWeight.text.toString()),
-                Squat(weight = squatWeigt.text.toString())
+                Squat(weight = squatWeight.text.toString())
             )
             val mainActivity = Intent(this, MainActivity::class.java)
             startActivity(mainActivity)

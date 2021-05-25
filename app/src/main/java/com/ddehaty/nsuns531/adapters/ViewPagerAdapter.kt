@@ -1,24 +1,55 @@
 package com.ddehaty.nsuns531.adapters
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.ddehaty.nsuns531.R
 
-class ViewPagerAdapter(private val trainingType: Int) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>() {
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
-    inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.ddehaty.nsuns531.Benchpress
+import com.ddehaty.nsuns531.ui.fragments.*
+import java.lang.IllegalArgumentException
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view_pager, parent, false)
-        return ViewPagerViewHolder(view)
-    }
+class ViewPagerAdapter(fa: FragmentActivity, val trainingType: Int) : FragmentStateAdapter(fa) {
 
-    override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
-    }
 
     override fun getItemCount(): Int {
-        return trainingType
+        return when (trainingType) {
+            1 -> 4
+            2 -> 5
+            3 -> 6
+            else -> {
+                6
+            }
+        }
     }
+
+
+
+    override fun createFragment(position: Int): Fragment {
+        when (trainingType) {
+            1 -> {
+                return when (position) {
+                    0 -> BenchOhpFragment()
+                    1 -> SquatSumoFragment()
+                    2 -> BenchCgBenchFragment()
+                    3 -> DeadliftFrontSquatFragment()
+                    else -> return BenchOhpFragment()
+                }
+            }
+            2 -> {
+                return when (position) {
+                    0 -> BenchOhpFragment()
+                    1 -> SquatSumoFragment()
+                    2 -> OhpInclineBenchFragment()
+                    3 -> DeadliftFrontSquatFragment()
+                    4 -> BenchCgBenchFragment()
+                    else -> return BenchOhpFragment()
+                }
+            }
+            else -> return BenchOhpFragment()
+        }
+
+    }
+
+
 }

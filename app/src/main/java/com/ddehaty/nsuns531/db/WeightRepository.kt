@@ -11,6 +11,8 @@ class WeightRepository(
 
     fun getAllBenchpressWeights() = db.BenchpressDao().getAll()
 
+    suspend fun getLatestBenchpressWeight() = db.BenchpressDao().getLatestWeight()
+
     suspend fun saveBenchpressWeight(benchpress: Benchpress) = db.BenchpressDao().save(benchpress)
 
     fun getAllDeadliftWeights() = db.DeadliftDao().getAll()
@@ -24,7 +26,6 @@ class WeightRepository(
     fun getAllSquatWeights() = db.SquatDao().getAll()
 
     suspend fun saveSquatWeight(squat: Squat) = db.SquatDao().save(squat)
-
 
 
 }
