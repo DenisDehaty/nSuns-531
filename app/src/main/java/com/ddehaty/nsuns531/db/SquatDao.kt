@@ -11,6 +11,9 @@ interface SquatDao {
     @Query("SELECT * FROM Squat WHERE id > 0")
     fun getAll(): List<Squat>
 
+    @Query("SELECT weight FROM Squat WHERE id = (SELECT max(id) FROM Squat)")
+    suspend fun getLatestWeight(): String
+
     @Insert
     suspend fun save(squat: Squat)
 }

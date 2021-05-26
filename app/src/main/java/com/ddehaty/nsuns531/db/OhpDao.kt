@@ -11,6 +11,9 @@ interface OhpDao {
     @Query("SELECT * FROM Ohp WHERE id > 0")
     fun getAll(): List<Ohp>
 
+    @Query("SELECT weight FROM Ohp WHERE id = (SELECT max(id) FROM Ohp)")
+    suspend fun getLatestWeight(): String
+
     @Insert
     suspend fun save(ohp: Ohp)
 }

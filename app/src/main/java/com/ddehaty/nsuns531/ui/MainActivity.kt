@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         if(preferences.getBoolean("firststart",true)){
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)
+            finish()
         }
 
     }

@@ -12,10 +12,7 @@ import com.ddehaty.nsuns531.R
 import com.ddehaty.nsuns531.adapters.BenchOhpAdapter
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
-import kotlin.concurrent.thread
+import kotlinx.coroutines.*
 
 
 class BenchOhpFragment : Fragment() {
@@ -34,30 +31,28 @@ class BenchOhpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //nefunguje
         val context = this.requireContext()
-        var benchpressWeightString = "Nothing yet"
-        println(benchpressWeightString)
-        MainScope().launch {
+        var benchpressWeightString = ""
+        var ohpWeightString = ""
+        lifecycleScope.launch(Dispatchers.IO) {
             benchpressWeightString =
                 WeightRepository(NsunsDatabase(context)).getLatestBenchpressWeight()
-            println("toto som hladal $benchpressWeightString")
-            if (benchpressWeightString != "Nothing yet") {
-                val benchpressWeight = benchpressWeightString.toDouble()
-                println("$benchpressWeight bench")
-
-                createRecyclerView(view, benchpressWeight)
+            ohpWeightString = WeightRepository(NsunsDatabase(context)).getLatestOhpWeight()
+            withContext(Dispatchers.Main) {
+                if (benchpressWeightString != "" && ohpWeightString != "") {
+                    val benchpressWeight = benchpressWeightString.toDouble()
+                    val ohpWeight = ohpWeightString.toDouble()
+                    createRecyclerView(view, benchpressWeight, ohpWeight)
+                }
             }
         }
-
-        //nefunguje
 
 
     }
 
-    private suspend fun createRecyclerView(view: View, weight: Double) {
+    private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
         benchOhpRV = view.findViewById(R.id.benchOhpRV)
-        val rvAdapter = BenchOhpAdapter(weight)
+        val rvAdapter = BenchOhpAdapter(weight1, weight2)
         benchOhpRV.adapter = rvAdapter
         benchOhpRV.layoutManager = LinearLayoutManager(context)
     }

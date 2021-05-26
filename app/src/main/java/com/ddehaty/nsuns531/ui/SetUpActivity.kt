@@ -10,6 +10,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -43,7 +44,7 @@ class SetUpActivity : AppCompatActivity() {
     }
 
     private fun saveWeights(benchpress: Benchpress, deadlift: Deadlift, ohp: Ohp, squat: Squat) {
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.IO) {
             WeightRepository(NsunsDatabase(this@SetUpActivity)).apply {
                 saveBenchpressWeight(benchpress)
                 saveDeadliftWeight(deadlift)
