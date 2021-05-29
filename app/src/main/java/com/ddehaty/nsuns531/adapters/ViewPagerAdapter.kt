@@ -46,6 +46,28 @@ class ViewPagerAdapter(fa: FragmentActivity, val trainingType: Int) : FragmentSt
                     else -> return BenchOhpFragment()
                 }
             }
+            3 -> {
+                return when (position) {
+                    0 -> BenchOhpFragment()
+                    1 -> DeadliftFrontSquatFragment()
+                    2 -> OhpInclineBenchFragment()
+                    3 -> SquatSumoFragment()
+                    4 -> BenchCgBenchFragment()
+                    5 -> SixthDayTrainingFragment(trainingType)
+                    else -> return BenchOhpFragment()
+                }
+            }
+            4 -> {
+                return when (position) {
+                    0 -> BenchOhpFragment()
+                    1 -> SquatSumoFragment()
+                    2 -> OhpInclineBenchFragment()
+                    3 -> DeadliftFrontSquatFragment()
+                    4 -> BenchCgBenchFragment()
+                    5 -> SixthDayTrainingFragment(trainingType)
+                    else -> return BenchOhpFragment()
+                }
+            }
             else -> return BenchOhpFragment()
         }
 

@@ -9,25 +9,24 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.R
-import com.ddehaty.nsuns531.adapters.BenchOhpAdapter
-import com.ddehaty.nsuns531.adapters.DeadliftFrontSquatAdapter
+import com.ddehaty.nsuns531.adapters.SixthDayTrainingAdapter
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DeadliftFrontSquatFragment : Fragment() {
+class SixthDayTrainingFragment(private val trainingType: Int) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_deadlift_front_squat, container, false)
+        return inflater.inflate(R.layout.fragment_sixth_day_training, container, false)
     }
 
-    private lateinit var deadliftFrontSquatRV: RecyclerView
+    private lateinit var sixthDayTrainingRV: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,7 +42,7 @@ class DeadliftFrontSquatFragment : Fragment() {
                 if (deadliftWeightString != "" && squatWeightString != "") {
                     val deadliftWeight = deadliftWeightString.toDouble()
                     val squatWeight = squatWeightString.toDouble()
-                    createRecyclerView(view, deadliftWeight, squatWeight)
+                    createRecyclerView(view, deadliftWeight, squatWeight, trainingType)
                 }
             }
         }
@@ -51,11 +50,21 @@ class DeadliftFrontSquatFragment : Fragment() {
 
     }
 
-    private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
-        deadliftFrontSquatRV = view.findViewById(R.id.deadliftFrontSquatRV)
-        val rvAdapter = DeadliftFrontSquatAdapter(weight1, weight2)
-        deadliftFrontSquatRV.adapter = rvAdapter
-        deadliftFrontSquatRV.layoutManager = LinearLayoutManager(context)
+    private fun createRecyclerView(
+        view: View,
+        weight1: Double,
+        weight2: Double,
+        trainingType: Int
+    ) {
+        sixthDayTrainingRV = view.findViewById(R.id.sixDayTrainingRV)
+        val rvAdapter = if (trainingType == 3) {
+            SixthDayTrainingAdapter(weight1, weight2, trainingType)
+        } else {
+            SixthDayTrainingAdapter(weight2, weight1, trainingType)
+        }
+        sixthDayTrainingRV.adapter = rvAdapter
+        sixthDayTrainingRV.layoutManager = LinearLayoutManager(context)
     }
+
 
 }
