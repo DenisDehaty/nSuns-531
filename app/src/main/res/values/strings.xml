@@ -3,10 +3,10 @@
     <string name="set_up_activity_title">First Settings</string>
     <string name="select_plan">Choose your plan</string>
 
-    <string name="four_day_plan">4 day</string>
-    <string name="five_day_plan">5 day</string>
-    <string name="six_day_deadlift_plan">6 day Deadlift focused</string>
-    <string name="six_day_squat_plan">6 day Squat focused</string>
+    <string name="four_day_plan">4 days</string>
+    <string name="five_day_plan">5 days</string>
+    <string name="six_day_deadlift_plan">6 days Deadlift focused</string>
+    <string name="six_day_squat_plan">6 days Squat focused</string>
 
     <string name="units">Select your preferred units</string>
     <string name="next_button">Next</string>
@@ -25,4 +25,5 @@
     <string name="close">Close</string>
     <string name="home">Home</string>
     <string name="settings">Settings</string>
+    <string name="save">Save</string>
 </resources>

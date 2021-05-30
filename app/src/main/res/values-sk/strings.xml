@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">nSuns 5/3/1</string>
+    <string name="set_up_activity_title">Prvotné nastavenia</string>
+    <string name="select_plan">Vyberte si svoj plán</string>
+
+    <string name="four_day_plan">4-dňový</string>
+    <string name="five_day_plan">5-dňový</string>
+    <string name="six_day_deadlift_plan">6-dňový so zameraním na mŕtvy ťah</string>
+    <string name="six_day_squat_plan">6-dňový so zameraním na drepy</string>
+
+    <string name="units">Vyberte si preferované jednotky</string>
+    <string name="next_button">Ďalej</string>
+
+    <string name="set_personal_max_title">Zadajte svoje maximálky</string>
+    <string name="set_personal_max_msg">Zadajte svoje maximálky zo zadaných cvikov</string>
+    <string name="confirm_button">Potvrdiť</string>
+    <string name="back_button">Späť</string>
+
+    <string name="squat">Drep</string>
+    <string name="bench">Tlaky na lavičke</string>
+    <string name="deadlift">Mŕtvy ťah</string>
+    <string name="ohp">Tlaky na ramená v stoji</string>
+    <string name="saving_weights">Zadané váhy boli uložené</string>
+    <string name="open">Otvoriť</string>
+    <string name="close">Zavrieť</string>
+    <string name="home">Domov</string>
+    <string name="settings">Nastavenia</string>
+    <string name="save">Uložiť</string>
+</resources>

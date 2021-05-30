@@ -1,6 +1,8 @@
 package com.ddehaty.nsuns531.ui.fragments
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -30,9 +32,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         TabLayoutMediator(tabLayout, homeViewPager) { tab, position ->
             tab.text = "${position + 1}"
         }.attach()
+        val activity = this.requireActivity()
+        activity.title = activity.getString(R.string.home)
 
 
 }
+
 
     private fun getTypeOfTraining(): Int {
         val preferences = this.requireActivity()
