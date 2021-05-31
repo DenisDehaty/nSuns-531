@@ -1,4 +1,4 @@
-package com.ddehaty.nsuns531.ui
+package com.ddehaty.nsuns531.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class SetUpActivity : AppCompatActivity() {
@@ -36,15 +36,14 @@ class SetUpActivity : AppCompatActivity() {
             editor.apply {
                 putString("plan", plans.text.toString())
                 putString("units", units.text.toString())
-                putBoolean("firststart",false)
+                putBoolean("firststart", false)
                 apply()
             }
         }
-
     }
 
     private fun saveWeights(benchpress: Benchpress, deadlift: Deadlift, ohp: Ohp, squat: Squat) {
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             WeightRepository(NsunsDatabase(this@SetUpActivity)).apply {
                 saveBenchpressWeight(benchpress)
                 saveDeadliftWeight(deadlift)
@@ -52,14 +51,12 @@ class SetUpActivity : AppCompatActivity() {
                 saveSquatWeight(squat)
             }
         }
-
-
     }
 
 
     private fun showAlertDialog() {
         val inflater = this.layoutInflater
-        val layout = inflater.inflate(R.layout.alert_dialog, null)
+        val layout = inflater.inflate(R.layout.alert_dialog_set_up, null)
         val dialog = AlertDialog.Builder(this)
             .setTitle(R.string.set_personal_max_title).setMessage(R.string.set_personal_max_msg)
             .setPositiveButton(R.string.confirm_button, null)

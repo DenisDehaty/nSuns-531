@@ -44,8 +44,6 @@ class BenchOhpFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
     private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
