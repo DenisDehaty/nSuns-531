@@ -1,5 +1,6 @@
 package com.ddehaty.nsuns531.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
 
-class SixthDayTrainingAdapter(weight1 : Double, weight2 : Double, trainingType : Int) : RecyclerView.Adapter<SixthDayTrainingAdapter.TrainingViewHolder>() {
-    fun getNames(trainingType: Int) : List<String>{
+class SixthDayTrainingAdapter(weight1 : Double, weight2 : Double, trainingType : Int, context: Context) : RecyclerView.Adapter<SixthDayTrainingAdapter.TrainingViewHolder>() {
+    val deadlift = context.getString(R.string.deadlift)
+    val frontSquat = context.getString(R.string.front_squat)
+    val squat = context.getString(R.string.squat)
+    val sumo = context.getString(R.string.sumo)
+
+    private fun getNames(trainingType: Int) : List<String>{
         return if(trainingType == 3) {
-            listOf("Deadlift\n","Front squat\n")
+            listOf("$deadlift\n","$frontSquat\n")
         } else {
-            listOf("Squat\n","Sumo deadlift\n")
+            listOf("$squat\n","$sumo\n")
         }
     }
     private val names = getNames(trainingType)

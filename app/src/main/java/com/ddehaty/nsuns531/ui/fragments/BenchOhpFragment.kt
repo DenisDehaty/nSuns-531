@@ -48,7 +48,7 @@ class BenchOhpFragment : Fragment() {
 
     private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
         benchOhpRV = view.findViewById(R.id.benchOhpRV)
-        val rvAdapter = BenchOhpAdapter(weight1, weight2)
+        val rvAdapter = BenchOhpAdapter(weight1, weight2, this.requireContext())
         benchOhpRV.adapter = rvAdapter
         benchOhpRV.layoutManager = LinearLayoutManager(context)
     }

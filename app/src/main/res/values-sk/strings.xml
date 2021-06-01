@@ -20,6 +20,18 @@
     <string name="bench">Tlaky na lavičke</string>
     <string name="deadlift">Mŕtvy ťah</string>
     <string name="ohp">Tlaky na ramená v stoji</string>
+    <string name="cg_bench">Tlaky na lavičke na úzko</string>
+    <string name="incline_bench">Tlaky na šikmej lavičke</string>
+    <string name="sumo">Sumo mŕtvy ťah</string>
+    <string name="front_squat">Čelný drep</string>
+
+    <string name="benc_ohp_as">Doplnkové cviky: Hruď, Ruky, Chrbát</string>
+    <string name="squat_sumo_as">Doplnkové cviky: Nohy, Brucho</string>
+    <string name="bench_cg_bench_as">Doplnkové cviky: Ruky, Iné</string>
+    <string name="deadlift_front_as">Doplnkové cviky: Chrbát, Brucho</string>
+    <string name="ohp_incline_as">Doplnkové cviky: Ramená, Hruď</string>
+    <string name="sixth_day_as">Doplnkové cviky: Horný Chrbát, Nohy</string>
+
     <string name="saving_weights">Zadané váhy boli uložené</string>
     <string name="open">Otvoriť</string>
     <string name="close">Zavrieť</string>
@@ -27,5 +39,5 @@
     <string name="settings">Nastavenia</string>
     <string name="edit">Upraviť váhy</string>
     <string name="enter_weights_dialog">Zadajte svoje nové treningové maximum</string>
-    <string name="one_plus_set_text">Ako budete zvyšovať váhy TM záleží od toho aký počet opakovaní spravíte každý týzden v 1+ sérii.\nAk spravíte 0-1 opakovaní, nezvyšujte svoje TM.\n2-3 zvýšte o 2.5kg alebo 5lbs\n4-5 zvýšte o 2.5-5kg alebo 5-10lbs.\nViac ako 5 opakovaní zvýšte o 5-7.5kg alebo 10-15lbs.</string>
+    <string name="one_plus_set_text">Ako budete zvyšovať váhy TM záleží od toho aký počet opakovaní spravíte každý týzden v 1+ sérii.\nAk spravíte 0–1 opakovaní, nezvyšujte svoje TM.\n2–3 zvýšte o 2.5kg alebo 5lbs\n4–5 zvýšte o 2.5-5kg alebo 5-10lbs.\nViac ako 5 opakovaní zvýšte o 5-7.5kg alebo 10-15lbs.</string>
 </resources>

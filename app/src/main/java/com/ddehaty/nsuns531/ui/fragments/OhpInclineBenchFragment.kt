@@ -56,7 +56,7 @@ class OhpInclineBenchFragment : Fragment() {
 
     private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
         ohpInclineBenchRV = view.findViewById(R.id.ohpInclineBenchRv)
-        val rvAdapter = OhpInclineBenchAdapter(weight1, weight2)
+        val rvAdapter = OhpInclineBenchAdapter(weight1, weight2, this.requireContext())
         ohpInclineBenchRV.adapter = rvAdapter
         ohpInclineBenchRV.layoutManager = LinearLayoutManager(context)
     }

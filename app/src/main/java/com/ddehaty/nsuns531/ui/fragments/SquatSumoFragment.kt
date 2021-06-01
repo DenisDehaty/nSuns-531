@@ -52,12 +52,11 @@ class SquatSumoFragment : Fragment() {
         }
 
 
-
     }
 
     private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
         squatSumoRV = view.findViewById(R.id.squatSumoRv)
-        val rvAdapter = SquatSumoAdapter(weight1, weight2)
+        val rvAdapter = SquatSumoAdapter(weight1, weight2, this.requireContext())
         squatSumoRV.adapter = rvAdapter
         squatSumoRV.layoutManager = LinearLayoutManager(context)
     }

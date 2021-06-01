@@ -1,5 +1,6 @@
 package com.ddehaty.nsuns531.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
 
-class DeadliftFrontSquatAdapter(deadlift : Double, squat : Double) : RecyclerView.Adapter<DeadliftFrontSquatAdapter.TrainingViewHolder>() {
-    private val weights = listOf("Deadlift\n",
+class DeadliftFrontSquatAdapter(deadlift : Double, squat : Double,context: Context) : RecyclerView.Adapter<DeadliftFrontSquatAdapter.TrainingViewHolder>() {
+
+    val deadliftName = context.getString(R.string.deadlift)
+    val squatName = context.getString(R.string.squat)
+
+
+    private val weights = listOf("$deadliftName\n",
         "${Calculator.calculateWeight(deadlift,0.75)} x5",
         "${Calculator.calculateWeight(deadlift, 0.85)} x3",
         "${Calculator.calculateWeight(deadlift, 0.95)} x1+",
@@ -19,7 +25,7 @@ class DeadliftFrontSquatAdapter(deadlift : Double, squat : Double) : RecyclerVie
         "${Calculator.calculateWeight(deadlift, 0.75)} x3",
         "${Calculator.calculateWeight(deadlift, 0.7)} x3",
         "${Calculator.calculateWeight(deadlift, 0.65)} x3+\n",
-        "Front squat \n",
+        "$squatName\n",
         "${Calculator.calculateWeight(squat,0.35)} x5",
         "${Calculator.calculateWeight(squat, 0.45)} x5",
         "${Calculator.calculateWeight(squat, 0.55)} x3",

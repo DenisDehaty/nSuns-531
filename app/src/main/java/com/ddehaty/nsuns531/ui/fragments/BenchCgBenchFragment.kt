@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.R
 import com.ddehaty.nsuns531.adapters.BenchCgBenchAdapter
-import com.ddehaty.nsuns531.adapters.BenchOhpAdapter
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
 import kotlinx.coroutines.Dispatchers
@@ -52,7 +51,7 @@ class BenchCgBenchFragment : Fragment() {
 
     private fun createRecyclerView(view: View, weight1: Double) {
         benchCgBenchRV = view.findViewById(R.id.benchCgBenchRV)
-        val rvAdapter = BenchCgBenchAdapter(weight1)
+        val rvAdapter = BenchCgBenchAdapter(weight1,this.requireContext())
         benchCgBenchRV.adapter = rvAdapter
         benchCgBenchRV.layoutManager = LinearLayoutManager(context)
     }

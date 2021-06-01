@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.R
-import com.ddehaty.nsuns531.adapters.BenchOhpAdapter
 import com.ddehaty.nsuns531.adapters.DeadliftFrontSquatAdapter
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
@@ -53,7 +52,7 @@ class DeadliftFrontSquatFragment : Fragment() {
 
     private fun createRecyclerView(view: View, weight1: Double, weight2: Double) {
         deadliftFrontSquatRV = view.findViewById(R.id.deadliftFrontSquatRV)
-        val rvAdapter = DeadliftFrontSquatAdapter(weight1, weight2)
+        val rvAdapter = DeadliftFrontSquatAdapter(weight1, weight2, this.requireContext())
         deadliftFrontSquatRV.adapter = rvAdapter
         deadliftFrontSquatRV.layoutManager = LinearLayoutManager(context)
     }

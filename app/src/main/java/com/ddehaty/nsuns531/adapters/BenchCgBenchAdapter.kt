@@ -1,5 +1,8 @@
 package com.ddehaty.nsuns531.adapters
 
+import android.app.Application
+import android.content.Context
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
 
-class BenchCgBenchAdapter(benchpressWeight: Double) :
+class BenchCgBenchAdapter(benchpressWeight: Double, context: Context) :
     RecyclerView.Adapter<BenchCgBenchAdapter.TrainingViewHolder>() {
+    val benchpress = context.getString(R.string.bench)
+    val cgBench = context.getString(R.string.cg_bench)
     private val weights = listOf(
-        "Bench press\n",
+        "$benchpress\n",
         "${Calculator.calculateWeight(benchpressWeight, 0.75)} x5",
         "${Calculator.calculateWeight(benchpressWeight, 0.85)} x3",
         "${Calculator.calculateWeight(benchpressWeight, 0.95)} x1+",
@@ -21,7 +26,7 @@ class BenchCgBenchAdapter(benchpressWeight: Double) :
         "${Calculator.calculateWeight(benchpressWeight, 0.75)} x5",
         "${Calculator.calculateWeight(benchpressWeight, 0.7)} x3",
         "${Calculator.calculateWeight(benchpressWeight, 0.65)} x5+\n",
-        "Close grip bench press \n",
+        "$cgBench \n",
         "${Calculator.calculateWeight(benchpressWeight, 0.4)} x6",
         "${Calculator.calculateWeight(benchpressWeight, 0.5)} x5",
         "${Calculator.calculateWeight(benchpressWeight, 0.6)} x3",

@@ -1,5 +1,6 @@
 package com.ddehaty.nsuns531.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
 
-class SquatSumoAdapter(squatWeight: Double, sumoWeight: Double) :
+class SquatSumoAdapter(squatWeight: Double, sumoWeight: Double, context: Context) :
     RecyclerView.Adapter<SquatSumoAdapter.TrainingViewHolder>() {
+
+    val squat = context.getString(R.string.squat)
+    val sumo = context.getString(R.string.sumo)
+
     private val weights = listOf(
-        "Squat\n",
+        "$squat\n",
         "${Calculator.calculateWeight(squatWeight, 0.65)}x8",
         "${Calculator.calculateWeight(squatWeight, 0.75)} x5",
         "${Calculator.calculateWeight(squatWeight, 0.85)} x3",
@@ -22,7 +27,7 @@ class SquatSumoAdapter(squatWeight: Double, sumoWeight: Double) :
         "${Calculator.calculateWeight(squatWeight, 0.75)} x5",
         "${Calculator.calculateWeight(squatWeight, 0.7)} x5",
         "${Calculator.calculateWeight(squatWeight, 0.65)} x5+\n",
-        "Sumo deadlift \n",
+        "$sumo\n",
         "${Calculator.calculateWeight(sumoWeight, 0.5)} x5",
         "${Calculator.calculateWeight(sumoWeight, 0.6)} x5",
         "${Calculator.calculateWeight(sumoWeight, 0.7)} x3",

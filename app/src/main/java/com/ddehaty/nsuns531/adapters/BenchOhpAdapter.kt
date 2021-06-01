@@ -1,5 +1,6 @@
 package com.ddehaty.nsuns531.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,11 @@ import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
 import com.ddehaty.nsuns531.R.layout.*
 
-class BenchOhpAdapter(benchpressWeight : Double, ohpWeight : Double) : RecyclerView.Adapter<BenchOhpAdapter.TrainingViewHolder>() {
-    private val weights = listOf("Bench press\n",
+class BenchOhpAdapter(benchpressWeight : Double, ohpWeight : Double,context: Context) : RecyclerView.Adapter<BenchOhpAdapter.TrainingViewHolder>() {
+    val benchpress = context.getString(R.string.bench)
+    val ohp = context.getString(R.string.ohp)
+
+    private val weights = listOf("$benchpress\n",
         "${Calculator.calculateWeight(benchpressWeight,0.65)} x8",
         "${Calculator.calculateWeight(benchpressWeight, 0.75)} x6",
         "${Calculator.calculateWeight(benchpressWeight, 0.85)} x4",
@@ -20,7 +24,7 @@ class BenchOhpAdapter(benchpressWeight : Double, ohpWeight : Double) : RecyclerV
         "${Calculator.calculateWeight(benchpressWeight, 0.75)} x6",
         "${Calculator.calculateWeight(benchpressWeight, 0.7)} x7",
         "${Calculator.calculateWeight(benchpressWeight, 0.65)} x8+\n",
-        "Overhead press \n",
+        "$ohp \n",
         "${Calculator.calculateWeight(ohpWeight,0.5)} x6",
         "${Calculator.calculateWeight(ohpWeight, 0.6)} x5",
         "${Calculator.calculateWeight(ohpWeight, 0.7)} x3",

@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
@@ -47,12 +48,17 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> {
                     val nav = Navigation.findNavController(this, R.id.navHostFragment)
-                    nav.apply {
-                        popBackStack(R.id.homeFragment, true)
-                        navigate(R.id.homeFragment)
+                    val currentFragment = navController().currentDestination?.id
+                    if (currentFragment == R.id.homeFragment) {
+                        closeDrawer()
+                    } else {
+                        nav.apply {
+                            popBackStack(R.id.homeFragment, true)
+                            navigate(R.id.homeFragment)
+                        }
+                        editButton.isVisible = true
+                        closeDrawer()
                     }
-                    editButton.isVisible = true
-                    closeDrawer()
                 }
                 R.id.settings -> {
                     Navigation.findNavController(this, R.id.navHostFragment)
@@ -139,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun reloadActivity(){
+    private fun reloadActivity() {
         finish()
         overridePendingTransition(0, 0)
         startActivity(intent)
@@ -177,8 +183,15 @@ class MainActivity : AppCompatActivity() {
             return
         } else {
             super.onBackPressed()
+            val currentFragment = navController().currentDestination?.id
+            if (currentFragment == R.id.homeFragment) {
+                editButton.isVisible = true
+            }
         }
     }
+
+    // https://stackoverflow.com/questions/51385067/android-navigation-architecture-component-get-current-visible-fragment
+    private fun navController() = Navigation.findNavController(this, R.id.navHostFragment)
 
 
 }

@@ -20,6 +20,18 @@
     <string name="bench">Bench Press</string>
     <string name="deadlift">Deadlift</string>
     <string name="ohp">Overhead Press</string>
+    <string name="cg_bench">Close grip bench press</string>
+    <string name="incline_bench">Incline bench press</string>
+    <string name="sumo">Sumo deadlift</string>
+    <string name="front_squat">Front squat</string>
+    
+    <string name="benc_ohp_as">Assistance: Chest, Arms, Back</string>
+    <string name="squat_sumo_as">Assistance: Legs, Abs</string>
+    <string name="bench_cg_bench_as">Assistance: Arms, Other</string>
+    <string name="deadlift_front_as">Assistance: Back, Abs</string>
+    <string name="ohp_incline_as">Assistance: Shoulders, Chest</string>
+    <string name="sixth_day_as">Assistance: Upper Back, Legs</string>
+
     <string name="saving_weights">Selected weights have been saved</string>
     <string name="open">Open</string>
     <string name="close">Close</string>

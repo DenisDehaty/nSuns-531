@@ -58,9 +58,9 @@ class SixthDayTrainingFragment(private val trainingType: Int) : Fragment() {
     ) {
         sixthDayTrainingRV = view.findViewById(R.id.sixDayTrainingRV)
         val rvAdapter = if (trainingType == 3) {
-            SixthDayTrainingAdapter(weight1, weight2, trainingType)
+            SixthDayTrainingAdapter(weight1, weight2, trainingType, this.requireContext())
         } else {
-            SixthDayTrainingAdapter(weight2, weight1, trainingType)
+            SixthDayTrainingAdapter(weight2, weight1, trainingType, this.requireContext())
         }
         sixthDayTrainingRV.adapter = rvAdapter
         sixthDayTrainingRV.layoutManager = LinearLayoutManager(context)
