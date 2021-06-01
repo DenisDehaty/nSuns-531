@@ -10,13 +10,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
-import com.ddehaty.nsuns531.ui.fragments.BenchOhpFragment
-import com.ddehaty.nsuns531.ui.fragments.HomeFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 import java.util.*
@@ -136,16 +133,24 @@ class MainActivity : AppCompatActivity() {
                 Ohp(weight = ohpWeight.text.toString()),
                 Squat(weight = squatWeight.text.toString())
             )
+            reloadActivity()
             dialog.dismiss()
         }
 
+    }
+
+    private fun reloadActivity(){
+        finish()
+        overridePendingTransition(0, 0)
+        startActivity(intent)
+        overridePendingTransition(0, 0)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             return true
         }
-        if (item.itemId == R.id.saveWeightButton) {
+        if (item.itemId == R.id.editWeightsButton) {
             showAlertDialog()
             return true
         }
@@ -154,7 +159,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.app_bar_menu, menu)
-        editButton = menu?.findItem(R.id.saveWeightButton)!!
+        editButton = menu?.findItem(R.id.editWeightsButton)!!
         return super.onCreateOptionsMenu(menu)
     }
 

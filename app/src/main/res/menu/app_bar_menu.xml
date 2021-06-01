@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/saveWeightButton"
+        android:id="@+id/editWeightsButton"
         android:icon="@drawable/ic_baseline_edit_24"
         android:title="@string/edit"
         app:showAsAction="always" />

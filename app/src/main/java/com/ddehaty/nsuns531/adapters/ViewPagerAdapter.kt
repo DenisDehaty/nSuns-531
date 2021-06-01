@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.ddehaty.nsuns531.Benchpress
 import com.ddehaty.nsuns531.ui.fragments.*
-import java.lang.IllegalArgumentException
 
-class ViewPagerAdapter(fa: FragmentActivity, val trainingType: Int) : FragmentStateAdapter(fa) {
+class ViewPagerAdapter(fa: FragmentActivity, private val trainingType: Int) : FragmentStateAdapter(fa) {
 
 
     override fun getItemCount(): Int {
