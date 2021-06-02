@@ -7,6 +7,9 @@ import android.view.Menu
 import android.widget.EditText
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.core.view.GravityCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
@@ -31,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
-
+        val theme = preferences.getString("theme","-1").toString()
+        AppCompatDelegate.setDefaultNightMode(theme.toInt())
         if (preferences.getBoolean("firststart", true)) {
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)

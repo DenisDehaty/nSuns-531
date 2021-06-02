@@ -46,4 +46,11 @@
     <string name="closing_application">Closing application</string>
     <string name="closing_question">Are you sure you want to close nSuns 5/3/1?</string>
 
+    <string name="theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_follow_system">System default</string>
+    <string name="choose_theme">Choose your theme</string>
+
+
 </resources>

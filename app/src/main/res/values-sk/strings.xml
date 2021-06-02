@@ -46,5 +46,12 @@
     <string name="closing_application">Zavretie aplikácie</string>
     <string name="closing_question">Ste si istý, že chcete zavrieť nSuns 5/3/1?</string>
 
+    <string name="theme">Téma</string>
+    <string name="theme_light">Svetlá</string>
+    <string name="theme_dark">Tmavá</string>
+    <string name="theme_follow_system">Predvolená systémom</string>
+    <string name="choose_theme">Vyber si svoju tému</string>
+
+
 
 </resources>

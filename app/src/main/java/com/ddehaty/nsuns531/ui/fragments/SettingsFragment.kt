@@ -2,6 +2,7 @@ package com.ddehaty.nsuns531.ui.fragments
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceFragmentCompat
 import com.ddehaty.nsuns531.R
 import com.ddehaty.nsuns531.ui.activities.MainActivity
@@ -31,6 +32,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 AppCompatActivity.MODE_PRIVATE
             )
         val currentUnits = preferences.getString("units", "")
+        val theme = preferences.getString("theme","-1").toString()
+        AppCompatDelegate.setDefaultNightMode(theme.toInt())
         if (units != currentUnits) {
             (activity as MainActivity).reloadActivity()
         }
