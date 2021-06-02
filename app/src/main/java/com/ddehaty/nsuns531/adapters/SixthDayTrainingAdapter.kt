@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
@@ -14,6 +15,9 @@ class SixthDayTrainingAdapter(weight1 : Double, weight2 : Double, trainingType :
     val frontSquat = context.getString(R.string.front_squat)
     val squat = context.getString(R.string.squat)
     val sumo = context.getString(R.string.sumo)
+    val preferences = context
+        .getSharedPreferences("com.ddehaty.nsuns531_preferences", AppCompatActivity.MODE_PRIVATE)
+    val units = preferences.getString("units", "kg")
 
     private fun getNames(trainingType: Int) : List<String>{
         return if(trainingType == 3) {
@@ -24,21 +28,21 @@ class SixthDayTrainingAdapter(weight1 : Double, weight2 : Double, trainingType :
     }
     private val names = getNames(trainingType)
     private val weights = listOf(names[0],
-        "${Calculator.calculateWeight(weight1,0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3+",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3",
-        "${Calculator.calculateWeight(weight1, 0.725)} x3\n",
+        "${Calculator.calculateWeight(weight1,0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3+",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3",
+        "${Calculator.calculateWeight(weight1, 0.725)}$units x3\n",
         names[1],
-        "${Calculator.calculateWeight(weight2,0.75*0.75)} x3",
-        "${Calculator.calculateWeight(weight2, 0.75*0.75)} x3",
-        "${Calculator.calculateWeight(weight2, 0.75*0.75)} x3",
-        "${Calculator.calculateWeight(weight2, 0.75*0.75)} x3",
-        "${Calculator.calculateWeight(weight2, 0.75*0.75)} x3",
-        "${Calculator.calculateWeight(weight2, 0.75*0.75)} x3",
+        "${Calculator.calculateWeight(weight2,0.75*0.75)}$units x3",
+        "${Calculator.calculateWeight(weight2, 0.75*0.75)}$units x3",
+        "${Calculator.calculateWeight(weight2, 0.75*0.75)}$units x3",
+        "${Calculator.calculateWeight(weight2, 0.75*0.75)}$units x3",
+        "${Calculator.calculateWeight(weight2, 0.75*0.75)}$units x3",
+        "${Calculator.calculateWeight(weight2, 0.75*0.75)}$units x3",
     )
     class TrainingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val textView: TextView = itemView.findViewById(R.id.sixthDayTrainingText)

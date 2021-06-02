@@ -1,20 +1,39 @@
 package com.ddehaty.nsuns531.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceFragmentCompat
 import com.ddehaty.nsuns531.R
+import com.ddehaty.nsuns531.ui.activities.MainActivity
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : PreferenceFragmentCompat() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+    var units = ""
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.root_preferences, rootKey)
+        val activity = this.requireActivity()
+        activity.title = activity.getString(R.string.settings)
+        val preferences = this.requireActivity()
+            .getSharedPreferences(
+                "com.ddehaty.nsuns531_preferences",
+                AppCompatActivity.MODE_PRIVATE
+            )
+        units = preferences.getString("units", "").toString()
+
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        val preferences = this.requireActivity()
+            .getSharedPreferences(
+                "com.ddehaty.nsuns531_preferences",
+                AppCompatActivity.MODE_PRIVATE
+            )
+        val currentUnits = preferences.getString("units", "")
+        if (units != currentUnits) {
+            (activity as MainActivity).reloadActivity()
+        }
     }
 
 

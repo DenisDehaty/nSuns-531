@@ -31,10 +31,20 @@ class SetUpActivity : AppCompatActivity() {
                 findViewById<RadioGroup>(R.id.unitsRadioButton).checkedRadioButtonId
             val units = findViewById<RadioButton>(unitsCheckedRadioButtonId)
             showAlertDialog()
-            val preferences = getSharedPreferences("Preferences", MODE_PRIVATE)
+            val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
             val editor = preferences.edit()
+            var trainingType = "4"
+            when (plans.text.toString()) {
+                this.getString(R.string.four_day_plan) -> trainingType = "1"
+                this.getString(R.string.five_day_plan) -> trainingType = "2"
+                this.getString(R.string.six_day_deadlift_plan) -> trainingType = "3"
+                this.getString(R.string.six_day_squat_plan) -> trainingType = "4"
+                else -> {
+                }
+
+            }
             editor.apply {
-                putString("plan", plans.text.toString())
+                putString("plan", trainingType)
                 putString("units", units.text.toString())
                 putBoolean("firststart", false)
                 apply()

@@ -24,7 +24,7 @@
     <string name="incline_bench">Incline bench press</string>
     <string name="sumo">Sumo deadlift</string>
     <string name="front_squat">Front squat</string>
-    
+
     <string name="benc_ohp_as">Assistance: Chest, Arms, Back</string>
     <string name="squat_sumo_as">Assistance: Legs, Abs</string>
     <string name="bench_cg_bench_as">Assistance: Arms, Other</string>
@@ -40,5 +40,10 @@
     <string name="edit">Edit weights</string>
     <string name="enter_weights_dialog">Enter your new training max</string>
     <string name="one_plus_set_text">How much you will increase your TM each week is based on how you perform in the 1+ set each day.\nIf you get 0-1 reps, do not increase your TM.\n2-3 increase by 2.5kg or 5lbs.\n4-5 increase by 2.5-5kg or 5-10lbs.\nMore than 5 reps increase by 5-7.5kg or 10-15lbs.</string>
+
+    <string name="plans">Plans</string>
+
+    <string name="closing_application">Closing application</string>
+    <string name="closing_question">Are you sure you want to close nSuns 5/3/1?</string>
 
 </resources>

@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val preferences = getSharedPreferences("Preferences", MODE_PRIVATE)
+        val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
 
         if (preferences.getBoolean("firststart", true)) {
             val setUpActivity = Intent(this, SetUpActivity::class.java)
@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun reloadActivity() {
+    fun reloadActivity() {
         finish()
         overridePendingTransition(0, 0)
         startActivity(intent)
@@ -182,10 +182,22 @@ class MainActivity : AppCompatActivity() {
         if (closeDrawer()) {
             return
         } else {
-            super.onBackPressed()
             val currentFragment = navController().currentDestination?.id
             if (currentFragment == R.id.homeFragment) {
                 editButton.isVisible = true
+                AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle(R.string.closing_application)
+                    .setMessage(R.string.closing_question)
+                    .setPositiveButton(R.string.confirm_button) { _, _ ->
+                        finish()
+                    }
+                    .setNegativeButton(R.string.back_button) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            } else {
+                super.onBackPressed()
             }
         }
     }

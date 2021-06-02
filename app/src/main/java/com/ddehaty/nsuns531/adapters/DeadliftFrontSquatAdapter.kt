@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ddehaty.nsuns531.Calculator
 import com.ddehaty.nsuns531.R
@@ -12,28 +13,31 @@ import com.ddehaty.nsuns531.R
 class DeadliftFrontSquatAdapter(deadlift : Double, squat : Double,context: Context) : RecyclerView.Adapter<DeadliftFrontSquatAdapter.TrainingViewHolder>() {
 
     val deadliftName = context.getString(R.string.deadlift)
-    val squatName = context.getString(R.string.squat)
+    val squatName = context.getString(R.string.front_squat)
+    val preferences = context
+        .getSharedPreferences("com.ddehaty.nsuns531_preferences", AppCompatActivity.MODE_PRIVATE)
+    val units = preferences.getString("units", "kg")
 
 
     private val weights = listOf("$deadliftName\n",
-        "${Calculator.calculateWeight(deadlift,0.75)} x5",
-        "${Calculator.calculateWeight(deadlift, 0.85)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.95)} x1+",
-        "${Calculator.calculateWeight(deadlift, 0.9)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.85)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.8)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.75)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.7)} x3",
-        "${Calculator.calculateWeight(deadlift, 0.65)} x3+\n",
+        "${Calculator.calculateWeight(deadlift,0.75)}$units x5",
+        "${Calculator.calculateWeight(deadlift, 0.85)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.95)}$units x1+",
+        "${Calculator.calculateWeight(deadlift, 0.9)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.85)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.8)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.75)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.7)}$units x3",
+        "${Calculator.calculateWeight(deadlift, 0.65)}$units x3+\n",
         "$squatName\n",
-        "${Calculator.calculateWeight(squat,0.35)} x5",
-        "${Calculator.calculateWeight(squat, 0.45)} x5",
-        "${Calculator.calculateWeight(squat, 0.55)} x3",
-        "${Calculator.calculateWeight(squat, 0.55)} x5",
-        "${Calculator.calculateWeight(squat, 0.55)} x7",
-        "${Calculator.calculateWeight(squat, 0.55)} x4",
-        "${Calculator.calculateWeight(squat, 0.55)} x6",
-        "${Calculator.calculateWeight(squat, 0.55)} x8",
+        "${Calculator.calculateWeight(squat,0.35)}$units x5",
+        "${Calculator.calculateWeight(squat, 0.45)}$units x5",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x3",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x5",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x7",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x4",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x6",
+        "${Calculator.calculateWeight(squat, 0.55)}$units x8",
     )
     class TrainingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val textView: TextView = itemView.findViewById(R.id.deadliftFrontSquatText)

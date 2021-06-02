@@ -20,7 +20,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         homeViewPager = view.findViewById(R.id.homeViewPager)
         val viewPagerAdapter = ViewPagerAdapter(this.requireActivity(), trainingType)
         homeViewPager.adapter = viewPagerAdapter
-        val preferences = this.requireActivity().getSharedPreferences("Preferences", AppCompatActivity.MODE_PRIVATE)
+        val preferences = this.requireActivity().getSharedPreferences("com.ddehaty.nsuns531_preferences", AppCompatActivity.MODE_PRIVATE)
         val viewPagerPosition = preferences.getInt("viewPagerPosition",0)
         homeViewPager.setCurrentItem(viewPagerPosition,false)
 
@@ -38,7 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onStop() {
         super.onStop()
         val preferences = this.requireActivity()
-            .getSharedPreferences("Preferences", AppCompatActivity.MODE_PRIVATE)
+            .getSharedPreferences("com.ddehaty.nsuns531_preferences", AppCompatActivity.MODE_PRIVATE)
         val editor = preferences.edit()
         editor.putInt("viewPagerPosition", homeViewPager.currentItem)
         editor.apply()
@@ -47,14 +47,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun getTypeOfTraining(): Int {
         val preferences = this.requireActivity()
-            .getSharedPreferences("Preferences", AppCompatActivity.MODE_PRIVATE)
-        val fragmentActivity = this.activity
+            .getSharedPreferences("com.ddehaty.nsuns531_preferences", AppCompatActivity.MODE_PRIVATE)
         var trainingType = 4
         when (preferences?.getString("plan", "4")) {
-            fragmentActivity?.getString(R.string.four_day_plan) -> trainingType = 1
-            fragmentActivity?.getString(R.string.five_day_plan) -> trainingType = 2
-            fragmentActivity?.getString(R.string.six_day_deadlift_plan) -> trainingType = 3
-            fragmentActivity?.getString(R.string.six_day_squat_plan) -> trainingType = 4
+            "1" -> trainingType = 1
+            "2" -> trainingType = 2
+            "3" -> trainingType = 3
+            "4" -> trainingType = 4
             else -> {
             }
 
