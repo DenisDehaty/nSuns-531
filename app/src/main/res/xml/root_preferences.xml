@@ -31,12 +31,27 @@
         app:title="@string/theme">
 
         <ListPreference
+            android:defaultValue="-1"
             app:entries="@array/theme_entries"
             app:entryValues="@array/theme_values"
             app:key="theme"
             app:title="@string/choose_theme"
-            android:defaultValue="-1"
             app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:icon="@drawable/ic_baseline_language_24"
+        app:title="@string/language">
+
+        <ListPreference
+
+            app:entries="@array/language_entires"
+            app:entryValues="@array/language_values"
+            app:key="language"
+            app:title="@string/choose_language"
+            app:useSimpleSummaryProvider="true" />
+
 
     </PreferenceCategory>
 

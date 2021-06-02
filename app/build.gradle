@@ -76,6 +76,10 @@ dependencies {
     // For loading and tinting drawables on older versions of the platform
     implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
 
+    // language
+    // https://github.com/akexorcist/Localization
+    implementation 'com.akexorcist:localization:1.2.10'
+
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

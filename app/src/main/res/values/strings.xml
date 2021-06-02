@@ -52,5 +52,8 @@
     <string name="theme_follow_system">System default</string>
     <string name="choose_theme">Choose your theme</string>
 
+    <string name="language">Language</string>
+    <string name="choose_language">Choose your preferred language</string>
+
 
 </resources>

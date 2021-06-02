@@ -1,20 +1,17 @@
 package com.ddehaty.nsuns531.ui.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.widget.EditText
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.core.view.GravityCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
@@ -24,18 +21,22 @@ import java.util.*
 import kotlin.collections.ArrayList
 import android.view.MenuItem as MenuItem
 
-class MainActivity : AppCompatActivity() {
+@Suppress("DEPRECATION")
+class MainActivity : LocalizationActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var editButton: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
+        val theme = preferences.getString("theme", "-1").toString()
+        AppCompatDelegate.setDefaultNightMode(theme.toInt())
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
-        val theme = preferences.getString("theme","-1").toString()
-        AppCompatDelegate.setDefaultNightMode(theme.toInt())
+        val language = preferences.getString("language", "").toString()
+        setLanguage(language)
         if (preferences.getBoolean("firststart", true)) {
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun saveWeights(benchpress: Benchpress, deadlift: Deadlift, ohp: Ohp, squat: Squat) {
         GlobalScope.launch(Dispatchers.IO) {
@@ -186,9 +188,15 @@ class MainActivity : AppCompatActivity() {
         if (closeDrawer()) {
             return
         } else {
+            //super.onBackPressed()
             val currentFragment = navController().currentDestination?.id
-            if (currentFragment == R.id.homeFragment) {
+            if (currentFragment != R.id.homeFragment) {
+                super.onBackPressed()
                 editButton.isVisible = true
+
+
+
+            } else {
                 AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle(R.string.closing_application)
@@ -200,8 +208,7 @@ class MainActivity : AppCompatActivity() {
                         dialog.dismiss()
                     }
                     .show()
-            } else {
-                super.onBackPressed()
+
             }
         }
     }

@@ -52,6 +52,10 @@
     <string name="theme_follow_system">Predvolená systémom</string>
     <string name="choose_theme">Vyber si svoju tému</string>
 
+    <string name="language">Jazyk</string>
+    <string name="choose_language">Vyberte si svoj preferovaný jazyk</string>
+
+
 
 
 </resources>

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.ConfigurationCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.ddehaty.nsuns531.*
@@ -13,6 +14,7 @@ import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 class SetUpActivity : AppCompatActivity() {
 
@@ -43,10 +45,21 @@ class SetUpActivity : AppCompatActivity() {
                 }
 
             }
+            var currentLocale = ConfigurationCompat.getLocales(resources.configuration)[0].toLanguageTag().toString()
+            println("pred $currentLocale")
+            if(currentLocale == "sk-SK") {
+                currentLocale = "sk"
+            }
+            if (currentLocale == "en-US"){
+                currentLocale = "en"
+        }
+
+            println("po $currentLocale")
             editor.apply {
                 putString("plan", trainingType)
                 putString("units", units.text.toString())
                 putBoolean("firststart", false)
+                putString("language", currentLocale)
                 apply()
             }
         }
