@@ -114,6 +114,7 @@ class TrainingMaxHistoryFragment : Fragment() {
         }
     }
 
+
     // https://stackoverflow.com/questions/47250263/kotlin-convert-timestamp-to-datetime
     private fun getDateTime(s: String): String {
         return try {
