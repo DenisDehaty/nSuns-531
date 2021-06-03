@@ -41,7 +41,7 @@
     <string name="enter_weights_dialog">Enter your new training max</string>
     <string name="one_plus_set_text">How much you will increase your TM each week is based on how you perform in the 1+ set each day.\nIf you get 0-1 reps, do not increase your TM.\n2-3 increase by 2.5kg or 5lbs.\n4-5 increase by 2.5-5kg or 5-10lbs.\nMore than 5 reps increase by 5-7.5kg or 10-15lbs.</string>
 
-    <string name="plans">Plans</string>
+    <string name="plans_units">Plans and units</string>
 
     <string name="closing_application">Closing application</string>
     <string name="closing_question">Are you sure you want to close nSuns 5/3/1?</string>

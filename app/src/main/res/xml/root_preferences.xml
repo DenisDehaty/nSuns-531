@@ -3,7 +3,7 @@
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_fitness_center_24"
-        app:title="@string/plans">
+        app:title="@string/plans_units">
 
 
         <ListPreference
@@ -14,17 +14,15 @@
             app:title="@string/select_plan"
             app:useSimpleSummaryProvider="true" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="@string/units">
-
         <ListPreference
             app:entries="@array/units_entries"
             app:entryValues="@array/units_values"
             app:key="units"
             app:title="@string/units"
             app:useSimpleSummaryProvider="true" />
+
     </PreferenceCategory>
+
 
     <PreferenceCategory
         app:icon="@drawable/ic_baseline_color_lens_24"
