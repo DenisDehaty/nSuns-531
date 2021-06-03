@@ -1,8 +1,6 @@
 package com.ddehaty.nsuns531.adapters
 
-import android.app.Application
 import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,24 +19,24 @@ class BenchCgBenchAdapter(benchpressWeight: Double, context: Context) :
     val units = preferences.getString("units", "kg")
     private val weights = listOf(
         "$benchpress\n",
-        "${Calculator.calculateWeight(benchpressWeight, 0.75)}$units x5",
-        "${Calculator.calculateWeight(benchpressWeight, 0.85)}$units x3",
-        "${Calculator.calculateWeight(benchpressWeight, 0.95)}$units x1+",
-        "${Calculator.calculateWeight(benchpressWeight, 0.9)}$units x3",
-        "${Calculator.calculateWeight(benchpressWeight, 0.85)}$units x5",
-        "${Calculator.calculateWeight(benchpressWeight, 0.8)}$units x3",
-        "${Calculator.calculateWeight(benchpressWeight, 0.75)}$units x5",
-        "${Calculator.calculateWeight(benchpressWeight, 0.7)}$units x3",
-        "${Calculator.calculateWeight(benchpressWeight, 0.65)}$units x5+\n",
+        "${Calculator.calculateWeight(benchpressWeight, 0.75)} $units x5",
+        "${Calculator.calculateWeight(benchpressWeight, 0.85)} $units x3",
+        "${Calculator.calculateWeight(benchpressWeight, 0.95)} $units x1+",
+        "${Calculator.calculateWeight(benchpressWeight, 0.9)} $units x3",
+        "${Calculator.calculateWeight(benchpressWeight, 0.85)} $units x5",
+        "${Calculator.calculateWeight(benchpressWeight, 0.8)} $units x3",
+        "${Calculator.calculateWeight(benchpressWeight, 0.75)} $units x5",
+        "${Calculator.calculateWeight(benchpressWeight, 0.7)} $units x3",
+        "${Calculator.calculateWeight(benchpressWeight, 0.65)} $units x5+\n",
         "$cgBench \n",
-        "${Calculator.calculateWeight(benchpressWeight, 0.4)}$units x6",
-        "${Calculator.calculateWeight(benchpressWeight, 0.5)}$units x5",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x3",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x5",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x7",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x4",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x6",
-        "${Calculator.calculateWeight(benchpressWeight, 0.6)}$units x8",
+        "${Calculator.calculateWeight(benchpressWeight, 0.4)} $units x6",
+        "${Calculator.calculateWeight(benchpressWeight, 0.5)} $units x5",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x3",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x5",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x7",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x4",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x6",
+        "${Calculator.calculateWeight(benchpressWeight, 0.6)} $units x8",
     )
 
     class TrainingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

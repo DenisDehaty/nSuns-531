@@ -11,9 +11,24 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_trainingMaxHistoryFragment"
+            app:destination="@id/trainingMaxHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ddehaty.nsuns531.ui.fragments.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_trainingMaxHistoryFragment"
+            app:destination="@id/trainingMaxHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingMaxHistoryFragment"
+        android:name="com.ddehaty.nsuns531.ui.fragments.TrainingMaxHistoryFragment"
+        android:label="TrainingMaxHistoryFragment" >
+        <action
+            android:id="@+id/action_trainingMaxHistoryFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>

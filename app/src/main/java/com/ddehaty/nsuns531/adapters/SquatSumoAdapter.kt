@@ -21,25 +21,25 @@ class SquatSumoAdapter(squatWeight: Double, sumoWeight: Double, context: Context
 
     private val weights = listOf(
         "$squat\n",
-        "${Calculator.calculateWeight(squatWeight, 0.65)}$units x8",
-        "${Calculator.calculateWeight(squatWeight, 0.75)}$units x5",
-        "${Calculator.calculateWeight(squatWeight, 0.85)}$units x3",
-        "${Calculator.calculateWeight(squatWeight, 0.95)}$units x1+",
-        "${Calculator.calculateWeight(squatWeight, 0.9)}$units x3",
-        "${Calculator.calculateWeight(squatWeight, 0.85)}$units x3",
-        "${Calculator.calculateWeight(squatWeight, 0.8)}$units x3",
-        "${Calculator.calculateWeight(squatWeight, 0.75)}$units x5",
-        "${Calculator.calculateWeight(squatWeight, 0.7)}$units x5",
-        "${Calculator.calculateWeight(squatWeight, 0.65)}$units x5+\n",
+        "${Calculator.calculateWeight(squatWeight, 0.65)} $units x8",
+        "${Calculator.calculateWeight(squatWeight, 0.75)} $units x5",
+        "${Calculator.calculateWeight(squatWeight, 0.85)} $units x3",
+        "${Calculator.calculateWeight(squatWeight, 0.95)} $units x1+",
+        "${Calculator.calculateWeight(squatWeight, 0.9)} $units x3",
+        "${Calculator.calculateWeight(squatWeight, 0.85)} $units x3",
+        "${Calculator.calculateWeight(squatWeight, 0.8)} $units x3",
+        "${Calculator.calculateWeight(squatWeight, 0.75)} $units x5",
+        "${Calculator.calculateWeight(squatWeight, 0.7)} $units x5",
+        "${Calculator.calculateWeight(squatWeight, 0.65)} $units x5+\n",
         "$sumo\n",
-        "${Calculator.calculateWeight(sumoWeight, 0.5)}$units x5",
-        "${Calculator.calculateWeight(sumoWeight, 0.6)}$units x5",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x3",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x5",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x7",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x4",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x6",
-        "${Calculator.calculateWeight(sumoWeight, 0.7)}$units x8\n"
+        "${Calculator.calculateWeight(sumoWeight, 0.5)} $units x5",
+        "${Calculator.calculateWeight(sumoWeight, 0.6)} $units x5",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x3",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x5",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x7",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x4",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x6",
+        "${Calculator.calculateWeight(sumoWeight, 0.7)} $units x8\n"
     )
 
     class TrainingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

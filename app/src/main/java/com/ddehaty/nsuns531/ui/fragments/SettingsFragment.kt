@@ -10,7 +10,6 @@ import com.ddehaty.nsuns531.ui.activities.MainActivity
 class SettingsFragment : PreferenceFragmentCompat() {
 
     var units = ""
-    var originalTheme = 3
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
@@ -22,8 +21,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 AppCompatActivity.MODE_PRIVATE
             )
         units = preferences.getString("units", "").toString()
-        val themeString = preferences.getString("theme", "-1").toString()
-        originalTheme = themeString.toInt()
+        
+
 
     }
 
@@ -37,12 +36,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val currentUnits = preferences.getString("units", "")
         val theme = preferences.getString("theme", "-1").toString()
         val language = preferences.getString("language", "en").toString()
-        if (theme.toInt() != originalTheme) {
-            AppCompatDelegate.setDefaultNightMode(theme.toInt())
-            (activity as MainActivity).apply {
-                reloadActivity()
-            }
-        }
+
         (activity as MainActivity).setLanguage(language)
 
         if (units != currentUnits) {

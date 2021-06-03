@@ -6,7 +6,6 @@ import android.view.Menu
 import android.widget.EditText
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
@@ -21,20 +20,16 @@ import java.util.*
 import kotlin.collections.ArrayList
 import android.view.MenuItem as MenuItem
 
-@Suppress("DEPRECATION")
 class MainActivity : LocalizationActivity() {
 
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var editButton: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
-        val theme = preferences.getString("theme", "-1").toString()
-        AppCompatDelegate.setDefaultNightMode(theme.toInt())
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
         val language = preferences.getString("language", "").toString()
         setLanguage(language)
         if (preferences.getBoolean("firststart", true)) {
@@ -54,11 +49,12 @@ class MainActivity : LocalizationActivity() {
                 R.id.home -> {
                     val nav = Navigation.findNavController(this, R.id.navHostFragment)
                     val currentFragment = navController().currentDestination?.id
+                    val language = preferences.getString("language","").toString()
+                    setLanguage(language)
                     if (currentFragment == R.id.homeFragment) {
                         closeDrawer()
                     } else {
                         nav.apply {
-                            popBackStack(R.id.homeFragment, true)
                             navigate(R.id.homeFragment)
                         }
                         editButton.isVisible = true
@@ -68,6 +64,12 @@ class MainActivity : LocalizationActivity() {
                 R.id.settings -> {
                     Navigation.findNavController(this, R.id.navHostFragment)
                         .navigate(R.id.settingsFragment)
+                    editButton.isVisible = false
+                    closeDrawer()
+                }
+                R.id.trainingMaxHistory -> {
+                    setLanguage(language)
+                    Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.trainingMaxHistoryFragment)
                     editButton.isVisible = false
                     closeDrawer()
                 }
@@ -184,17 +186,19 @@ class MainActivity : LocalizationActivity() {
         return false
     }
 
+    fun editButtonVisible(){
+        if(::editButton.isInitialized) {
+            editButton.isVisible = true
+        }
+    }
+
     override fun onBackPressed() {
         if (closeDrawer()) {
             return
         } else {
-            //super.onBackPressed()
             val currentFragment = navController().currentDestination?.id
             if (currentFragment != R.id.homeFragment) {
                 super.onBackPressed()
-                editButton.isVisible = true
-
-
 
             } else {
                 AlertDialog.Builder(this)

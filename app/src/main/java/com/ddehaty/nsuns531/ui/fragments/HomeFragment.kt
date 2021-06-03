@@ -13,6 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+
     private lateinit var homeViewPager: ViewPager2
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,6 +44,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val editor = preferences.edit()
         editor.putInt("viewPagerPosition", homeViewPager.currentItem)
         editor.apply()
+    }
+
+    override fun onResume() {
+        (activity as MainActivity).editButtonVisible()
+        super.onResume()
     }
 
 

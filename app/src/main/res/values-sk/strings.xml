@@ -12,7 +12,7 @@
     <string name="next_button">Ďalej</string>
 
     <string name="set_personal_max_title">Zadajte svoje maximálky</string>
-    <string name="set_personal_max_msg">Zadajte svoje maximálky zo zadaných cvikov</string>
+    <string name="set_personal_max_msg">Zadajte svoje maximálky zo zadaných cvikov vo zvolených hmotnostných jednotkách</string>
     <string name="confirm_button">Potvrdiť</string>
     <string name="back_button">Späť</string>
 
@@ -46,14 +46,12 @@
     <string name="closing_application">Zavretie aplikácie</string>
     <string name="closing_question">Ste si istý, že chcete zavrieť nSuns 5/3/1?</string>
 
-    <string name="theme">Téma</string>
-    <string name="theme_light">Svetlá</string>
-    <string name="theme_dark">Tmavá</string>
-    <string name="theme_follow_system">Predvolená systémom</string>
-    <string name="choose_theme">Vyber si svoju tému</string>
 
     <string name="language">Jazyk</string>
     <string name="choose_language">Vyberte si svoj preferovaný jazyk</string>
+
+    <string name="training_max_history">Histrória tréningového maxima</string>
+
 
 
 

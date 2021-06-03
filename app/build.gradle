@@ -80,6 +80,8 @@ dependencies {
     // https://github.com/akexorcist/Localization
     implementation 'com.akexorcist:localization:1.2.10'
 
+    // https://weeklycoding.com/mpandroidchart/
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
