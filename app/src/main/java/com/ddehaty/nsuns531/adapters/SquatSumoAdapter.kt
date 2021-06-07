@@ -21,7 +21,6 @@ class SquatSumoAdapter(squatWeight: Double, sumoWeight: Double, context: Context
 
     private val weights = listOf(
         "$squat\n",
-        "${Calculator.calculateWeight(squatWeight, 0.65)} $units x8",
         "${Calculator.calculateWeight(squatWeight, 0.75)} $units x5",
         "${Calculator.calculateWeight(squatWeight, 0.85)} $units x3",
         "${Calculator.calculateWeight(squatWeight, 0.95)} $units x1+",
