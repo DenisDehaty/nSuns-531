@@ -88,6 +88,9 @@ class TrainingMaxHistoryFragment : Fragment() {
                 val ohpDataset = LineDataSet(ohpEntries, activity.getString(R.string.ohp)).apply {
                     color = Color.YELLOW
                 }
+                benchpressDataset.valueTextSize = 10f
+                squatDataset.valueTextSize = 10f
+                deadliftDataset.valueTextSize = 10f
                 ohpDataset.valueTextSize = 10f
 
                 val lineData =

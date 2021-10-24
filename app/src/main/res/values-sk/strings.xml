@@ -50,7 +50,14 @@
     <string name="language">Jazyk</string>
     <string name="choose_language">Vyberte si svoj preferovaný jazyk</string>
 
-    <string name="training_max_history">Histrória tréningového maxima</string>
+    <string name="training_max_history">Histrória Tréningového Maxima</string>
+
+    <string name="add_weight">Pridať váhu</string>
+    <string name="your_weights">Vaše váhy</string>
+    <string name="enter_your_weight">Zadajte svoju váhu</string>
+    <string name="enter_your_weight_text">Zadajte svoju váhu v jednotkách ktoré ste si zvolili</string>
+    <string name="weight">Váha</string>
+
 
 
 

@@ -30,8 +30,8 @@ class MainActivity : LocalizationActivity() {
         setContentView(R.layout.activity_main)
 
         val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
-        val language = preferences.getString("language", "").toString()
-        setLanguage(language)
+        //val language = preferences.getString("language", "en").toString()
+        //setLanguage(language)
         if (preferences.getBoolean("firststart", true)) {
             val setUpActivity = Intent(this, SetUpActivity::class.java)
             startActivity(setUpActivity)
@@ -49,8 +49,8 @@ class MainActivity : LocalizationActivity() {
                 R.id.home -> {
                     val nav = Navigation.findNavController(this, R.id.navHostFragment)
                     val currentFragment = navController().currentDestination?.id
-                    val language = preferences.getString("language","").toString()
-                    setLanguage(language)
+                   // val language = preferences.getString("language","").toString()
+                    //setLanguage(language)
                     if (currentFragment == R.id.homeFragment) {
                         closeDrawer()
                     } else {
@@ -68,8 +68,14 @@ class MainActivity : LocalizationActivity() {
                     closeDrawer()
                 }
                 R.id.trainingMaxHistory -> {
-                    setLanguage(language)
+                   // setLanguage(language)
                     Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.trainingMaxHistoryFragment)
+                    editButton.isVisible = false
+                    closeDrawer()
+                }
+                R.id.userWeights -> {
+                   // setLanguage(language)
+                    Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.userWeightsFragment)
                     editButton.isVisible = false
                     closeDrawer()
                 }

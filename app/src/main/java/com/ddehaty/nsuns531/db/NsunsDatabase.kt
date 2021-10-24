@@ -1,22 +1,27 @@
 package com.ddehaty.nsuns531.db
 
 import android.content.Context
-import androidx.room.*
-import com.ddehaty.nsuns531.Benchpress
-import com.ddehaty.nsuns531.Deadlift
-import com.ddehaty.nsuns531.Ohp
-import com.ddehaty.nsuns531.Squat
+import androidx.room.AutoMigration
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import com.ddehaty.nsuns531.*
 
 @Database(
-    entities = [Benchpress::class, Deadlift::class, Ohp::class, Squat::class],
-    version = 1,
-    exportSchema = false
+    entities = [Benchpress::class, Deadlift::class, Ohp::class, Squat::class, User::class],
+    version = 2,
+    autoMigrations = [
+        AutoMigration (from = 1, to = 2)
+    ],
+    exportSchema = true
 )
 abstract class NsunsDatabase : RoomDatabase() {
     abstract fun BenchpressDao(): BenchpressDao
     abstract fun DeadliftDao(): DeadliftDao
     abstract fun OhpDao(): OhpDao
     abstract fun SquatDao(): SquatDao
+    abstract fun UserDao(): UserDao
+
 
     companion object {
         @Volatile

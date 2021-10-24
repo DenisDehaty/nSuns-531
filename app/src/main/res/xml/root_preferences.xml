@@ -23,19 +23,4 @@
     </PreferenceCategory>
 
 
-    <PreferenceCategory
-        app:icon="@drawable/ic_baseline_language_24"
-        app:title="@string/language">
-
-        <ListPreference
-
-            app:entries="@array/language_entires"
-            app:entryValues="@array/language_values"
-            app:key="language"
-            app:title="@string/choose_language"
-            app:useSimpleSummaryProvider="true" />
-
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

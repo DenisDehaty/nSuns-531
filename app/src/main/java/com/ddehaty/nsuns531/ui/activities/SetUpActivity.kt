@@ -45,7 +45,7 @@ class SetUpActivity : AppCompatActivity() {
                 }
 
             }
-            var currentLocale = ConfigurationCompat.getLocales(resources.configuration)[0].toLanguageTag().toString()
+          /*  var currentLocale = ConfigurationCompat.getLocales(resources.configuration)[0].toLanguageTag().toString()
             println("pred $currentLocale")
             if(currentLocale == "sk-SK") {
                 currentLocale = "sk"
@@ -53,13 +53,13 @@ class SetUpActivity : AppCompatActivity() {
             if (currentLocale == "en-US"){
                 currentLocale = "en"
         }
-
-            println("po $currentLocale")
+    */
+            //println("po $currentLocale")
             editor.apply {
                 putString("plan", trainingType)
                 putString("units", units.text.toString())
-                putBoolean("firststart", false)
-                putString("language", currentLocale)
+                //putBoolean("firststart", false)
+               // putString("language", currentLocale)
                 apply()
             }
         }
@@ -111,6 +111,12 @@ class SetUpActivity : AppCompatActivity() {
                 Squat(weight = squatWeight.text.toString())
             )
             val mainActivity = Intent(this, MainActivity::class.java)
+            val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
+            val editor = preferences.edit()
+            editor.apply{
+                putBoolean("firststart", false)
+                apply()
+            }
             startActivity(mainActivity)
             finish()
             dialog.dismiss()

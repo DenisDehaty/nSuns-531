@@ -1,9 +1,6 @@
 package com.ddehaty.nsuns531.db
 
-import com.ddehaty.nsuns531.Benchpress
-import com.ddehaty.nsuns531.Deadlift
-import com.ddehaty.nsuns531.Ohp
-import com.ddehaty.nsuns531.Squat
+import com.ddehaty.nsuns531.*
 
 class WeightRepository(
     val db: NsunsDatabase
@@ -36,5 +33,12 @@ class WeightRepository(
 
     suspend fun saveSquatWeight(squat: Squat) = db.SquatDao().save(squat)
 
+    fun getAllUserWeights() = db.UserDao().getAll()
+
+    suspend fun saveUserWeight(user: User) = db.UserDao().save(user)
+
+    fun getLatestUserWeight() = db.UserDao().getLatestUserWeight()
+
+    suspend fun deleteWeightUser(id: Int) = db.UserDao().deleteById(id)
 
 }

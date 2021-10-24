@@ -34,10 +34,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 AppCompatActivity.MODE_PRIVATE
             )
         val currentUnits = preferences.getString("units", "")
-        val theme = preferences.getString("theme", "-1").toString()
-        val language = preferences.getString("language", "en").toString()
-
-        (activity as MainActivity).setLanguage(language)
 
         if (units != currentUnits) {
             (activity as MainActivity).reloadActivity()

@@ -15,5 +15,7 @@
         <item name="colorSurface">@color/black</item>
         <item name="android:colorBackground">@color/black</item>
         <item name="android:background">@color/black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="elevationOverlayColor">@color/black</item>
     </style>
 </resources>

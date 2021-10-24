@@ -50,7 +50,13 @@
     <string name="language">Language</string>
     <string name="choose_language">Choose your preferred language</string>
 
-    <string name="training_max_history">Training max history</string>
+    <string name="training_max_history">Training Max History</string>
+    
+    <string name="add_weight">Add Weight</string>
+    <string name="your_weights">Your Weights</string>
+    <string name="enter_your_weight">Enter your weight</string>
+    <string name="enter_your_weight_text">Enter your weight in units you selected</string>
+    <string name="weight">Weight</string>
 
 
 

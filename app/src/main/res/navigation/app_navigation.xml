@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_homeFragment_to_trainingMaxHistoryFragment"
             app:destination="@id/trainingMaxHistoryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_userWeightsFragment"
+            app:destination="@id/userWeightsFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -22,6 +25,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_trainingMaxHistoryFragment"
             app:destination="@id/trainingMaxHistoryFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_userWeightsFragment"
+            app:destination="@id/userWeightsFragment" />
     </fragment>
     <fragment
         android:id="@+id/trainingMaxHistoryFragment"
@@ -29,6 +35,20 @@
         android:label="TrainingMaxHistoryFragment" >
         <action
             android:id="@+id/action_trainingMaxHistoryFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_trainingMaxHistoryFragment_to_userWeightsFragment"
+            app:destination="@id/userWeightsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userWeightsFragment"
+        android:name="com.ddehaty.nsuns531.ui.fragments.UserWeightsFragment"
+        android:label="UserWeightsFragment" >
+        <action
+            android:id="@+id/action_userWeightsFragment_to_trainingMaxHistoryFragment"
+            app:destination="@id/trainingMaxHistoryFragment" />
+        <action
+            android:id="@+id/action_userWeightsFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
 </navigation>

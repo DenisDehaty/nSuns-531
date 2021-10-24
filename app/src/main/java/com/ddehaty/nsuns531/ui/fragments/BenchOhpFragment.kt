@@ -2,6 +2,7 @@ package com.ddehaty.nsuns531.ui.fragments
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,14 +31,12 @@ class BenchOhpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val context = this.requireContext()
-        var benchpressWeightString = ""
-        var ohpWeightString = ""
         lifecycleScope.launch(Dispatchers.IO) {
-            benchpressWeightString =
+            val benchpressWeightString =
                 WeightRepository(NsunsDatabase(context)).getLatestBenchpressWeight()
-            ohpWeightString = WeightRepository(NsunsDatabase(context)).getLatestOhpWeight()
+            val ohpWeightString = WeightRepository(NsunsDatabase(context)).getLatestOhpWeight()
             withContext(Dispatchers.Main) {
-                if (benchpressWeightString != "" && ohpWeightString != "") {
+                if (benchpressWeightString != null && ohpWeightString != null) {
                     val benchpressWeight = benchpressWeightString.toDouble()
                     val ohpWeight = ohpWeightString.toDouble()
                     createRecyclerView(view, benchpressWeight, ohpWeight)
