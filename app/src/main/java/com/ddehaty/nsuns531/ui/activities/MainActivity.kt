@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.EditText
+import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
@@ -14,6 +15,7 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
+import com.ddehaty.nsuns531.ui.helper.drawStatusBarBackground
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 import java.util.*
@@ -28,6 +30,7 @@ class MainActivity : LocalizationActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        drawStatusBarBackground()
 
         val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
         //val language = preferences.getString("language", "en").toString()
@@ -81,6 +84,32 @@ class MainActivity : LocalizationActivity() {
                 }
             }
             true
+        }
+
+        // Since Android 16 onBackPressed() is no longer called, back is handled by this callback
+        onBackPressedDispatcher.addCallback(this) {
+            if (closeDrawer()) {
+                return@addCallback
+            }
+            val currentFragment = navController().currentDestination?.id
+            if (currentFragment != R.id.homeFragment) {
+                // let the navigation handle back like before
+                isEnabled = false
+                onBackPressedDispatcher.onBackPressed()
+                isEnabled = true
+            } else {
+                AlertDialog.Builder(this@MainActivity)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle(R.string.closing_application)
+                    .setMessage(R.string.closing_question)
+                    .setPositiveButton(R.string.confirm_button) { _, _ ->
+                        finish()
+                    }
+                    .setNegativeButton(R.string.back_button) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
         }
 
     }
@@ -195,31 +224,6 @@ class MainActivity : LocalizationActivity() {
     fun editButtonVisible(){
         if(::editButton.isInitialized) {
             editButton.isVisible = true
-        }
-    }
-
-    override fun onBackPressed() {
-        if (closeDrawer()) {
-            return
-        } else {
-            val currentFragment = navController().currentDestination?.id
-            if (currentFragment != R.id.homeFragment) {
-                super.onBackPressed()
-
-            } else {
-                AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle(R.string.closing_application)
-                    .setMessage(R.string.closing_question)
-                    .setPositiveButton(R.string.confirm_button) { _, _ ->
-                        finish()
-                    }
-                    .setNegativeButton(R.string.back_button) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    .show()
-
-            }
         }
     }
 

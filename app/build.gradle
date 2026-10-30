@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -6,8 +8,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    namespace "com.ddehaty.nsuns531"
+    compileSdk 36
 
     sourceSets {
         androidTest.assets.srcDirs +=
@@ -16,10 +18,10 @@ android {
 
     defaultConfig {
         applicationId "com.ddehaty.nsuns531"
-        minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 5
-        versionName "1.1"
+        minSdk 23
+        targetSdk 36
+        versionCode 6
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -42,46 +44,49 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
     }
 }
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.preference:preference-ktx:1.1.1'
-    def activity_version = "1.3.1"
+    implementation 'androidx.preference:preference-ktx:1.2.1'
+    def activity_version = "1.10.1"
     implementation "androidx.activity:activity-ktx:$activity_version"
 
 
-    def room_version = "2.4.0-alpha05"
+    def room_version = "2.7.2"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    def fragment_version = "1.3.6"
+    def fragment_version = "1.8.6"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
-    def nav_version = "2.3.5"
+    def nav_version = "2.9.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.1.0"
 
     // lifecycleScope:
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.0'
 
     // viewModelScope:
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0'
 
     // coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
 
-    def appcompat_version = "1.3.0"
+    def appcompat_version = "1.7.1"
 
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     // For loading and tinting drawables on older versions of the platform
@@ -98,11 +103,10 @@ dependencies {
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
