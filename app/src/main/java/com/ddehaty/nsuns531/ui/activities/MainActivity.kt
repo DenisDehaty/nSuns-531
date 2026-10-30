@@ -15,7 +15,7 @@ import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
-import com.ddehaty.nsuns531.ui.helper.drawStatusBarBackground
+import com.ddehaty.nsuns531.ui.helper.fitSystemBars
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 import java.util.*
@@ -30,7 +30,7 @@ class MainActivity : LocalizationActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        drawStatusBarBackground()
+        fitSystemBars()
 
         val preferences = getSharedPreferences("com.ddehaty.nsuns531_preferences", MODE_PRIVATE)
         //val language = preferences.getString("language", "en").toString()

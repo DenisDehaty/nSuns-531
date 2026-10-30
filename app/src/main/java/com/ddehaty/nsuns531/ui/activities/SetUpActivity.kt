@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.ddehaty.nsuns531.*
 import com.ddehaty.nsuns531.db.NsunsDatabase
 import com.ddehaty.nsuns531.db.WeightRepository
-import com.ddehaty.nsuns531.ui.helper.drawStatusBarBackground
+import com.ddehaty.nsuns531.ui.helper.fitSystemBars
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
@@ -23,7 +23,7 @@ class SetUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_up)
-        drawStatusBarBackground()
+        fitSystemBars()
         setTitle(R.string.set_up_activity_title)
 
         val nextButton = findViewById<Button>(R.id.setUpNextButton)
